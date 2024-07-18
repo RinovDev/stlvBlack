@@ -1,0 +1,47 @@
+
+<style>
+    .telegram-button {
+        opacity: 0; 
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background-color: black;
+        color: white;
+        text-decoration: none;
+        border: none;
+        border-radius: 50px;
+        padding: 15px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: opacity 1s; 
+    }
+
+    .telegram-button.visible {
+        opacity: 1; 
+    }
+
+    .telegram-button:hover {
+        background-color: grey;
+    }
+</style>
+
+<a id="telegramButton" class="telegram-button" href="https://t.me/wowuther" target="_blank">
+    Звʼязатися з нами
+</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let button = document.getElementById('telegramButton');
+        if (button) {
+            let wasButtonDisplayed = localStorage.getItem('telegramButtonDisplayed');
+            let delay = wasButtonDisplayed ? 1000 : 8000;
+
+            setTimeout(function() {
+                button.classList.add('visible');
+                localStorage.setItem('telegramButtonDisplayed', 'true');
+            }, delay);
+        }
+    });
+</script>
+

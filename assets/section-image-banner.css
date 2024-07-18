@@ -267,6 +267,7 @@
 }
 
 .banner__content {
+
   padding: 0;
   display: flex;
   position: relative;
@@ -339,6 +340,7 @@
 }
 
 .banner__box {
+  background: none;
   padding: 4rem 1.5rem;
   position: relative;
   height: fit-content;
@@ -472,7 +474,8 @@
 }
 
 .banner__box > * + .banner__buttons {
-  margin-top: 2rem;
+  margin-top: 10rem;
+  
 }
 
 @media screen and (max-width: 749px) {

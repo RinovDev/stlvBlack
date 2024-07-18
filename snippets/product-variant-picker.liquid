@@ -8,11 +8,19 @@
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
+
+ <style>
+  .variant-picker__container{
+    display:flex;
+    max-width:30%}
+</style> 
+
 {%- unless product.has_only_default_variant -%}
   <variant-selects
     id="variant-selects-{{ section.id }}"
     data-section="{{ section.id }}"
     {{ block.shopify_attributes }}
+    class = "variant-picker__container"
   >
     {%- for option in product.options_with_values -%}
       {%- liquid

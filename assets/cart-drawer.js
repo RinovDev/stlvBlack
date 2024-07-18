@@ -5,7 +5,10 @@ class CartDrawer extends HTMLElement {
     this.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
     this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
     this.setHeaderCartIconAccessibility();
+    
   }
+
+  
 
   setHeaderCartIconAccessibility() {
     const cartLink = document.querySelector('#cart-icon-bubble');
@@ -22,6 +25,8 @@ class CartDrawer extends HTMLElement {
       }
     });
   }
+
+  
 
   open(triggeredBy) {
     if (triggeredBy) this.setActiveElement(triggeredBy);

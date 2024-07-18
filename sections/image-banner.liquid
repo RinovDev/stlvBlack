@@ -1,5 +1,6 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
+
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
   {%- style -%}
     @media screen and (max-width: 749px) {
@@ -27,6 +28,51 @@
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
+
+  
+
+  
+
+  .custom_h2{
+    font-family: aAbsoluteEmpire;
+    font-size: 6rem;
+    color:#ffd837;
+  }
+
+  .custom2_h2{
+    font-family:Warsuck;
+    color:#ffd837;
+  }
+
+  .custom_p{
+    color:white;
+    letter-spacing: 0.5rem;
+    line-height: 2rem;
+  }
+
+  .custom_button{
+    background:#ffd837;
+    color:black;
+    transition: 1s ease;
+   
+  }
+
+  .custom_button:hover{
+
+    transform: scale(1.02)
+  }
+
+  .custom_btn{
+    color:black;
+    font-family: Montserrat-ExtraBold;
+    font-size:3rem;
+  }
+
+
+    
+  
+
+  
 {%- endstyle -%}
 
 {%- liquid
@@ -121,18 +167,33 @@
         {%- case block.type -%}
           {%- when 'heading' -%}
             <h2
-              class="banner__heading inline-richtext {{ block.settings.heading_size }}"
+              class="banner__heading inline-richtext {{ block.settings.heading_size }} 
+              {% if section.settings.our_custom_fonts %}
+              custom_h2
+              {% endif %}
+              {% if section.settings.our_custom_fonts2 %}
+              custom2_h2
+              {% endif %}"
+              
               {{ block.shopify_attributes }}
             >
               {{ block.settings.heading }}
             </h2>
           {%- when 'text' -%}
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
-              <p>{{ block.settings.text }}</p>
+              <p class ="
+                {% if section.settings.our_custom_fonts %}
+                   custom_p
+                {% endif %}"
+              >{{ block.settings.text }}</p>
             </div>
           {%- when 'buttons' -%}
             <div
-              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}
+                    {% if section.settings.our_custom_fonts %}
+                      custom_button
+                    {% endif %}"
+              "
               {{ block.shopify_attributes }}
             >
               {%- if block.settings.button_label_1 != blank -%}
@@ -142,19 +203,19 @@
                   {% else %}
                     href="{{ block.settings.button_link_1 }}"
                   {% endif %}
-                  class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                  class="custom_btn button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
                 >
                   {{- block.settings.button_label_1 | escape -}}
                 </a>
               {%- endif -%}
               {%- if block.settings.button_label_2 != blank -%}
-                <a
+                <a 
                   {% if block.settings.button_link_2 == blank %}
                     role="link" aria-disabled="true"
                   {% else %}
                     href="{{ block.settings.button_link_2 }}"
                   {% endif %}
-                  class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+                  class="custom_btn button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %} "
                 >
                   {{- block.settings.button_label_2 | escape -}}
                 </a>
@@ -175,6 +236,19 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+     {
+      "type": "checkbox",
+      "id": "our_custom_fonts2",
+      "default": false,
+      "label": "Активувати Warsuck"
+    },
+    
+    {
+      "type": "checkbox",
+      "id": "our_custom_fonts",
+      "default": false,
+      "label": "Активувати кастомні шріфти"
+    },
     {
       "type": "image_picker",
       "id": "image",

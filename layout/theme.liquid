@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+    
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -44,6 +45,26 @@
     %}
 
     {% style %}
+
+    @font-face {
+        font-family: "aAbsoluteEmpire";
+        src: url("{{ 'aAbsoluteEmpire.woff' | asset_url }}") format("woff"),
+             url("{{ 'aAbsoluteEmpire.woff2' | asset_url }}") format("woff2");
+      }
+
+      @font-face {
+       font-family: "Montserrat-ExtraBold";
+       src: url("{{ 'Montserrat-ExtraBold.woff' | asset_url }}") format("woff"),
+            url("{{ 'Montserrat-ExtraBold.woff2' | asset_url }}") format("woff2");
+      }
+
+      @font-face {
+       font-family: "Warsuck";
+       src: url("{{ 'Warsuck.woff' | asset_url }}") format("woff"),
+            url("{{ 'Warsuck.woff2' | asset_url }}") format("woff2");
+      }
+      
+      
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
       {{ body_font_italic | font_face: font_display: 'swap' }}
@@ -249,9 +270,12 @@
           font-size: 1.6rem;
         }
       }
+
+  
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+
 
     {%- unless settings.type_body_font.system? -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}
@@ -277,15 +301,16 @@
         onload="this.media='all'"
       >
     {%- endif -%}
-
+    
     <script>
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
   </head>
-
+    
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -299,7 +324,7 @@
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
-
+    {%render 'telegram-button'%}
     {% sections 'footer-group' %}
 
     <ul hidden>
@@ -355,5 +380,6 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    
   </body>
 </html>

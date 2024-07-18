@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "filtered_collections_Jcfx8M": {
+      "type": "filtered-collections",
+      "settings": {
+        "section_heading": "Our Collections"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "filtered_collections_Jcfx8M"
+  ]
+}
