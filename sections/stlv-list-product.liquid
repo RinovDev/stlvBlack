@@ -1,0 +1,96 @@
+{% schema %}
+  {
+    "name": "Product List Custom",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product",
+            "info": "Select a product."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Default",
+        "category": "Product"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  {% stylesheet %}
+  /* Flexbox styles */
+  .product-list-custom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .product-card {
+    flex: 1 1 calc(25% - 20px); /* Adjust the percentage for number of items per row */
+    border: 1px solid #e1e1e1;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .product-card h3 {
+    margin: 10px 0;
+  }
+  
+  .product-card .price {
+    color: #333;
+    font-size: 1.2em;
+  }
+  
+  .product-card .btn {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  {% endstylesheet %}
+  
+  <div class="product-list-custom">
+    {% for block in section.blocks %}
+      {% assign product = block.settings.product %}
+      <div class="product-card">
+        <a href="{{ product.url }}">
+          {% if product.featured_image %}
+            <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}">
+          {% else %}
+            <img src="//placehold.it/400x400" alt="{{ product.title }}">
+          {% endif %}
+          <h3>{{ product.title }}</h3>
+          <p class="price">
+            {% if product.compare_at_price > product.price %}
+              <span class="old-price">{{ product.compare_at_price | money }}</span>
+            {% endif %}
+            <span class="current-price">{{ product.price | money }}</span>
+          </p>
+          <div class="product-card__actions">
+            {% form 'product', product %}
+              {% render 'product-variant-picker', product: product %}
+              <button type="submit" class="btn">
+                {{ 'products.product.add_to_cart' | t }}
+              </button>
+            {% endform %}
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  

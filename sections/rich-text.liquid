@@ -1,5 +1,6 @@
 {{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
 
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -12,14 +13,16 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  
    .custom_rich_h2{
-    color:black;
-    font-family: Montserrat-ExtraBold;
-    font-size:4rem;
+    color: white;
+    font-family: Unbounded;
+    font-size:2.5rem;
   }
 
   .custom_rich_p2{
-    letter-spacing: 0.8rem;
+    font-family: Roboto Mono;
+   
 
   }
 {%- endstyle -%}
@@ -68,12 +71,11 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-              {% if section.settings.our_custom_fonts %}
-                     <p style ="letter-spacing:0.8rem;">ОБИРАЙ СВОЮ НОВУ УЛЮБЛЕНУ РІЧ В ГАРДЕРОБІ</p>
-                    {%else%}
-                     <p>{{ block.settings.text }}</p>
-                  {% endif %}
+            {% when 'p_text' %}
+                     <p class ="custom_rich_p2 scroll-trigger animate--slide-in ">{{ block.settings.p_text }}</p>
+                   
               </div>
+           
             {%- when 'button' -%}
               <div
                 class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -209,6 +211,19 @@
     }
   ],
   "blocks": [
+    {
+      "type": "p_text",
+      "name": "p_text",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "p_text",
+          "default": "asdasdasd",
+          "label": "type text"
+        }
+      ]
+    },
     {
       "type": "heading",
       "name": "t:sections.rich-text.blocks.heading.name",

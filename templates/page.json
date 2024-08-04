@@ -7,9 +7,28 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "custom_text_RfnArN": {
+      "type": "Custom-text",
+      "blocks": {
+        "content_block_XBUUa8": {
+          "type": "content_block",
+          "settings": {
+            "heading_type": "h1",
+            "heading_text": "asdasdasdasdasd",
+            "paragraph_text": "aslkdfjalkfjaklsdjflkasdjflkajdflkajdflkajlaksdfkladjflkasjdflkajsdfklajdflkjaflkjaflkjaslkfjaldkfjalkdfjaklfjlkajflkadjflkasdjflkasdjflkasdjflkasdjf"
+          }
+        }
+      },
+      "block_order": [
+        "content_block_XBUUa8"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_text_RfnArN"
   ]
 }

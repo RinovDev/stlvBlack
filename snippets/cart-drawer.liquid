@@ -31,7 +31,7 @@
         <div class="drawer__inner-empty">
           <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">
             <div class="cart-drawer__empty-content">
-              <h2 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h2>
+              <h2 class="cart__empty-text">Ваша корзина пуста</h2>
               <button
                 class="drawer__close"
                 type="button"
@@ -40,8 +40,8 @@
               >
                 {% render 'icon-close' %}
               </button>
-              <a href="{{ routes.all_products_collection_url }}" class="button">
-                {{ 'general.continue_shopping' | t }}
+              <a style="color:white;" href="{{ routes.all_products_collection_url }}" class="button">
+                Продовжити покупки
               </a>
 
               {%- if shop.customer_accounts_enabled and customer == null -%}

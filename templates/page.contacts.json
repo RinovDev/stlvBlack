@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "contact_form_qj6Mma": {
+      "type": "contact-form",
+      "settings": {
+        "address_title": "АДРЕСА",
+        "address": "Павлоград, Горькоко 133 тк. \"Олімпія\"",
+        "schedule_title": "ГРАФІК РОБОТИ",
+        "schedule": "Щодня, 9:30 - 21:30",
+        "email_title": "ПОШТА",
+        "email": "pavelgouvar@gmail.com",
+        "form_title": "НАПИШІТЬ НАМ"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact_form_qj6Mma"
+  ]
+}

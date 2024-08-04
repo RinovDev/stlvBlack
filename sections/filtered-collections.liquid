@@ -19,6 +19,8 @@
     flex-direction: column;
     margin-bottom: 10px;
     flex: 1;
+    gap:1rem;
+    
   }
 
   .collection-filters button {
@@ -35,6 +37,7 @@
   .collection-filters button:hover {
     color: grey;
     transform: scale(1.1);
+    cursor:pointer;
   }
 
   .collection-filters button::before {
@@ -45,8 +48,7 @@
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    border: 2px solid black;
-    border-radius: 3px;
+    border: 1px solid black;
     background: white;
   }
 
@@ -67,7 +69,8 @@
   }
 
   .collection-item {
-    width: calc(33% - 3em);
+    width: 20%;
+    text-align:center;
     margin: 0 1.5em 3em;
     opacity: 0;
     transform: scale(0.9);
@@ -113,17 +116,28 @@
       align-items: baseline;
     }
   }
+  .filter-button{
+    font-family: Assistant;
+    cursor:pointer;
+    touch-action: manipulation;
+  }
+  .custom_h3{
+    font-weight:100;
+    margin:0;
+  }
 </style>
 
-<div class="page-width all-collections-section scroll-trigger animate--slide-in">
+ <div class="page-width all-collections-section scroll-trigger animate--slide-in">
   <div class="collection-filters">
-    <h3 style ="font-weight:bold;">Категорія</h3>
+    <h3 class ="custom_h3">Категорія</h3>
     <button class="filter-button" data-filter="all">All</button>
     <button class="filter-button" data-filter="STLV">STLV</button>
     <button class="filter-button" data-filter="SUNSET GOONS">SUNSET GOONS</button>
     <button class="filter-button" data-filter="BLACK WHITE">BLACK WHITE</button>
     <button class="filter-button" data-filter="GUNS">GUNS</button>
-  </div>
+  </div> 
+
+
 
   <div class="prints-container">
     <div class="collection-items">
@@ -131,7 +145,7 @@
         {% if collection.metafields.filters.category %}
           <a href="{{ collection.url }}" class="collection-item visible" data-categories="{{ collection.metafields.filters.category }}">
             <div class="prints-content">
-              <img src="{{ collection.image | image_url: width: 284, height: 284 }}" alt="image">
+              <img src="{{ collection.image | image_url: width: 432, height: 550 }}" alt="image">
               <h3>{{ collection.title }}</h3>
             </div>
           </a>

@@ -1,0 +1,78 @@
+{% schema %}
+  {
+    "name": "Custom Content",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "content_block",
+        "name": "Content Block",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Add content to your block"
+          },
+          {
+            "id": "heading_type",
+            "type": "select",
+            "label": "Heading Type",
+            "options": [
+              { "value": "h1", "label": "H1" },
+              { "value": "h2", "label": "H2" },
+              { "value": "h3", "label": "H3" },
+              { "value": "h4", "label": "H4" }
+            ],
+            "default": "h1"
+          },
+          {
+            "id": "heading_text",
+            "type": "text",
+            "label": "Heading Text"
+          },
+          {
+            "id": "paragraph_text",
+            "type": "textarea",
+            "label": "Paragraph Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "STLV text",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  <div class="page-width">
+    {% for block in section.blocks %}
+      <div class="custom-block scroll-trigger animate--slide-in">
+        {% if block.settings.heading_text != blank %}
+          <{{ block.settings.heading_type }}>{{ block.settings.heading_text }}</{{ block.settings.heading_type }}>
+        {% endif %}
+        {% if block.settings.paragraph_text != blank %}
+          <p>{{ block.settings.paragraph_text }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  
+  <style>
+  
+  .custom-block {
+    margin-bottom: 20px;
+  }
+  
+  .custom-block h1, .custom-block h2, .custom-block h3, .custom-block h4 {
+    font-family: Montserrat-ExtraBold;
+    margin: 10px 0;
+    word-wrap: break-word;
+  }
+  
+  .custom-block p {
+    margin: 10px 0;
+    word-wrap: break-word;
+  }
+  </style>
+  

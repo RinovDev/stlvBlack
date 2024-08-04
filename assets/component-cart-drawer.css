@@ -97,6 +97,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  
 }
 
 .cart-drawer__warnings .drawer__close {

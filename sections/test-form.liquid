@@ -1,0 +1,113 @@
+{% schema %}
+  {
+    "name": "Dynamic Form",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "field",
+        "name": "Field",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Field Label",
+            "default": "Field Label"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_header",
+            "label": "Show Header",
+            "default": false
+          },
+          {
+            "type": "text",
+            "id": "header_text",
+            "label": "Header Text",
+            "default": "Header",
+            "info": "Text for the header if Show Header is checked"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_upload",
+            "label": "Show Upload image",
+            "default": false
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Server-form",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
+
+  
+  
+  <form class = "page-width server-form" action="http://localhost:3001/upload" method="post" enctype="multipart/form-data">
+  {% assign fieldNumber = 1 %}
+  {% for block in section.blocks %}
+    <div >
+      {% if block.settings.show_header %}
+        <h2 class ="server-form__header">{{ block.settings.header_text }}</h2>
+      {% endif %}
+
+      <input type="hidden" name="header_{{ fieldNumber }}" value="{{ block.settings.header_text }}">
+      <label for="{{ fieldNumber }}"></label>
+      <textarea id="{{ fieldNumber }}" name="{{ fieldNumber }}" rows="3" cols="39" required></textarea>
+
+      {% if block.settings.show_upload %}
+        <input type="file" name="image_position_{{ fieldNumber }}[]" accept=".png,.jpg,.jpeg,.DNG,.HEIC" required multiple>
+      {% endif %}
+    </div>
+    {% assign fieldNumber = fieldNumber | plus: 1 %}
+  {% endfor %}
+  
+  <button class = "form-btn" type="submit">SUBMIT</button>
+</form>
+
+<style>
+  .server-form__header{
+    max-width: 80%;
+  }
+  textarea{
+    font-size: 15px;
+    min-width: 36.33%;
+    
+  }
+  .form-btn{
+    min-width: 36.33%;
+    height:4rem;
+    font-size:3rem;
+    font-weight: 100;
+    border:none;
+    background:gray;
+    color:white;
+    cursor: pointer;
+  }
+  .form-btn:hover{
+    background:rgb(67, 66, 66);
+  }
+
+  @media (max-width: 768px) {
+    textarea{
+      font-size: 5px;
+    
+    }
+
+    .form-btn {
+    }
+
+    @media (max-width: 400px){
+      .form-btn{
+        min-width: 45%;
+        margin-bottom: 5rem;
+      }
+    }
+}
+
+</style>
+
+  

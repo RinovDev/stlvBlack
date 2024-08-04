@@ -3,6 +3,22 @@
   "name": "Custom Header",
   "blocks": [
     {
+      "type": "tg",
+      "name": "tg",
+      "settings": []  
+    },
+    {
+      "type": "instagram-video",
+      "name": "instagram-video",
+      "settings": []  
+    },
+    {
+      "type": "tiktok_video",
+      "name": "TikTok Video",
+      "settings": []  
+    },
+
+    {
       "type": "first_block",
       "name": "New Block",
       "settings": [
@@ -20,7 +36,7 @@
         {
           "type": "checkbox",
           "id": "show_first_text",
-          "label": "Показать текст"
+          "label": "Показати текст"
         },
         {
           "type": "text",
@@ -31,13 +47,19 @@
         {
           "type": "checkbox",
           "id": "show_first_button",
-          "label": "Показать кнопку"
+          "label": "Показати кнопку"
         },
         {
           "type": "text",
           "id": "first_paragraph_text",
           "label": "First Paragraph Text",
           "default": "Переглянути наші речі"
+        },
+        {
+          "type": "text",
+          "id": "first_button_url",
+          "label": "First Button URL",
+          "default": "#"
         }
       ]
     }
@@ -51,17 +73,23 @@
 }
 {% endschema %}
 
+
+
 <style>
   .custom-catalog_container {
+    margin-bottom:48px;
     display: flex;
-    flex-wrap:wrap;
-    
+    flex-wrap: wrap;
+    width:100%;
+    justify-content:center;
   }
  
   .custom-catalog_section {
+    display:flex;
+    align-items: center;
+    justify-content:center;
     width: 100%;
-    margin-bottom:30px;
-    
+    margin-bottom: 30px;
   }
   .product-block {
     display: flex;
@@ -108,53 +136,80 @@
     margin: 0;
   }
   .button-wrapper button {
- 
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    background:#ffd837;
-    color:black;
-    font-family: Montserrat-ExtraBold;
-    font-size:1.2rem;
+    background: none;
+    border: 1px solid;
+    color: white;
+    font-family: Unbounded;
+    font-size: 1.2rem;
     transition: 0.5s ease;
   }
 
-  .button-wrapper button:hover{
-    transform: scale(1.01)
+  .button-wrapper button:hover {
+    transform: scale(1.01);
   }
 
-  .first_text{
-    position:absolute;
-    color:white;
-    font-family: Montserrat-ExtraBold;
-    font-size:3.5rem;
+  .first_text {
+    position: absolute;
+    color: white;
+    font-family: Unbounded;
+    font-size: 3.5rem;
   }
-  .custom-block{
-    margin-right:30px;
-    transition: 0.5s ease;
+  .custom-block {
+    
+    max-width:100%;
+    background-size:100%;
+    transition: background-size 1s ease;
   }
 
-  .custom-block:hover{
-    transform:scale(1.01)
+  .custom-block:hover {
+
+   background-size: 105%;
   }
+
+  .product-block-link{
+    flex:1;
+    margin-right: 24px;
+  
+    
+  }
+
+
+
+  
 </style>
 
 <div class="custom-catalog_section scroll-trigger animate--slide-in">
-  <div class="page-width custom-catalog_container">
+  <div class=" page-width custom-catalog_container">
     {% for block in section.blocks %}
-      <div class="product-block custom-block" style="background-image: url({{ block.settings.first_image | img_url: 'master' }});">
-        {% if block.settings.show_first_text %}
-          <h2 class="first_text">{{ block.settings.first_text }}</h2>
-        {% endif %}
-        <div class="product-block-content">
-          <div class="button-wrapper">
-            {% if block.settings.show_first_button %}
-              <p>{{ block.settings.first_paragraph_text }}</p>
-              <button>{{ block.settings.first_button_text }}</button>
-            {% endif %}
+     {% case block.type %}
+     {%when 'first_block'%}
+      <a href="{{ block.settings.first_button_url }}" class="product-block-link " ">
+        <div class="product-block custom-block" style="background-image: url({{ block.settings.first_image | img_url: 'master' }});">
+          {% if block.settings.show_first_text %}
+            <h2 class="first_text">{{ block.settings.first_text }}</h2>
+          {% endif %}
+          <div class="product-block-content">
+            <div class="button-wrapper">
+              {% if block.settings.show_first_button %}
+                <p>{{ block.settings.first_paragraph_text }}</p>
+                <button>{{ block.settings.first_button_text }}</button>
+              {% endif %}
+            </div>
           </div>
         </div>
-      </div>
+      </a>
+      
+      {%when 'tiktok_video'%}
+        {%render 'tiktok-video'%}
+      {%when 'instagram-video'%}
+        {%render 'instagram'%}
+      {%when 'tg'%}
+        {%render 'tg'%}
+      {% endcase %}
+      
     {% endfor %}
   </div>
 </div>

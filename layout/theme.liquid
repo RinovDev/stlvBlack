@@ -1,11 +1,16 @@
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
     
 
     {%- if settings.favicon != blank -%}
@@ -46,6 +51,7 @@
 
     {% style %}
 
+    
     @font-face {
         font-family: "aAbsoluteEmpire";
         src: url("{{ 'aAbsoluteEmpire.woff' | asset_url }}") format("woff"),
@@ -63,6 +69,9 @@
        src: url("{{ 'Warsuck.woff' | asset_url }}") format("woff"),
             url("{{ 'Warsuck.woff2' | asset_url }}") format("woff2");
       }
+
+   
+
       
       
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
@@ -244,6 +253,7 @@
       *::after {
         box-sizing: inherit;
       }
+      
 
       html {
         box-sizing: border-box;
@@ -275,6 +285,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+
 
 
     {%- unless settings.type_body_font.system? -%}
@@ -381,5 +392,7 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
     
+
+    {{ 'stlvBase.css' | asset_url | stylesheet_tag }}
   </body>
 </html>

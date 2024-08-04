@@ -60,16 +60,16 @@
             "heading_size": "h1"
           }
         },
-        "text": {
-          "type": "text",
+        "p_text_FrLVdq": {
+          "type": "p_text",
           "settings": {
-            "text": "<p>ОБИРАЙ СВОЮ НОВУ УЛЮБЛЕНУ РІЧ В ГАРДЕРОБІ <\/p>"
+            "p_text": "ОБИРАЙ СВОЮ УЛЮБЛЕНУ РІЧ В ГАРДЕРОБІ"
           }
         }
       },
       "block_order": [
         "heading",
-        "text"
+        "p_text_FrLVdq"
       ],
       "settings": {
         "our_custom_fonts": true,
@@ -77,8 +77,8 @@
         "content_alignment": "center",
         "color_scheme": "scheme-1",
         "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "custom_catalog_6FNFWg": {
@@ -87,23 +87,25 @@
         "first_block_Xpgmm9": {
           "type": "first_block",
           "settings": {
-            "first_image": "shopify:\/\/shop_images\/1.png",
+            "first_image": "shopify:\/\/shop_images\/7595ecabd1de49f46fabb7284ca3a07d.jpg",
             "first_text": "КАТАЛОГ ПРИНТІВ",
             "show_first_text": true,
             "first_button_text": "ПЕРЕГЛЯНУТИ ВСІ ПРІНТИ",
             "show_first_button": true,
-            "first_paragraph_text": ""
+            "first_paragraph_text": "",
+            "first_button_url": "https:\/\/stlvclub.com\/pages\/прінти"
           }
         },
         "first_block_qcwNnP": {
           "type": "first_block",
           "settings": {
-            "first_image": "shopify:\/\/shop_images\/1_f7164165-9004-4ea5-bb1f-6e9397fb4b20.png",
+            "first_image": "shopify:\/\/shop_images\/d97ce189598b80d078a4def0ef9be7c9.jpg",
             "first_text": "КАТАЛОГ РЕЧЕЙ",
             "show_first_text": true,
             "first_button_text": "ПЕРЕГЛЯНУТИ ВСІ РЕЧІ",
             "show_first_button": true,
-            "first_paragraph_text": ""
+            "first_paragraph_text": "",
+            "first_button_url": "https:\/\/stlvclub.com\/pages\/каталог"
           }
         }
       },
@@ -120,7 +122,7 @@
         "heading_9F7ta7": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "ONLY THE DEAD HAVE SEEN THE END OF WAR",
             "heading_size": "h1"
           }
         }
@@ -135,27 +137,27 @@
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
-        "show_text_box": true,
+        "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "ambient",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     },
     "rich_text_n9rmHY": {
       "type": "rich-text",
       "blocks": {
-        "text_CMp8yB": {
-          "type": "text",
+        "p_text_9g7irw": {
+          "type": "p_text",
           "settings": {
-            "text": "<p>ВРИВАЙСЯ ПІДПИСУЙСЯ В НАШЕ КОМЮНИТИ <\/p>"
+            "p_text": "ДОЛУЧАЙСЯ ДО НАС В СОЦ МЕРЕЖАХ"
           }
         }
       },
       "block_order": [
-        "text_CMp8yB"
+        "p_text_9g7irw"
       ],
       "settings": {
         "our_custom_fonts": true,
@@ -170,46 +172,66 @@
     "custom_catalog_wHdWk9": {
       "type": "custom-catalog",
       "blocks": {
-        "first_block_ecAyWd": {
-          "type": "first_block",
+        "instagram_video_QcT9B7": {
+          "type": "instagram-video",
           "settings": {
-            "first_image": "shopify:\/\/shop_images\/prints.jpg",
-            "first_text": "Your Text",
-            "show_first_text": true,
-            "first_button_text": "Перейти",
-            "show_first_button": false,
-            "first_paragraph_text": "Переглянути наші речі"
           }
         },
-        "first_block_DrinHz": {
-          "type": "first_block",
+        "tiktok_video_ijWFgP": {
+          "type": "tiktok_video",
           "settings": {
-            "first_image": "shopify:\/\/shop_images\/prints.jpg",
-            "first_text": "Your Text",
-            "show_first_text": true,
-            "first_button_text": "Перейти",
-            "show_first_button": false,
-            "first_paragraph_text": "Переглянути наші речі"
           }
         },
-        "first_block_iKPDJc": {
-          "type": "first_block",
+        "tg_WNqfAc": {
+          "type": "tg",
           "settings": {
-            "first_image": "shopify:\/\/shop_images\/prints.jpg",
-            "first_text": "Your Text",
-            "show_first_text": true,
-            "first_button_text": "Перейти",
-            "show_first_button": false,
-            "first_paragraph_text": "Переглянути наші речі"
           }
         }
       },
       "block_order": [
-        "first_block_ecAyWd",
-        "first_block_DrinHz",
-        "first_block_iKPDJc"
+        "instagram_video_QcT9B7",
+        "tiktok_video_ijWFgP",
+        "tg_WNqfAc"
       ],
       "settings": {
+      }
+    },
+    "stlv_list_product_gYeAXa": {
+      "type": "stlv-list-product",
+      "blocks": {
+        "product_r3RW3m": {
+          "type": "product",
+          "settings": {
+            "product": "худи-кортуз"
+          }
+        },
+        "product_aQEVJH": {
+          "type": "product",
+          "settings": {
+            "product": "худи-кортуз"
+          }
+        },
+        "product_Rjm667": {
+          "type": "product",
+          "settings": {
+            "product": "худи-кортуз"
+          }
+        },
+        "product_XBTqpN": {
+          "type": "product",
+          "settings": {
+            "product": "худи-кортуз"
+          }
+        }
+      },
+      "block_order": [
+        "product_r3RW3m",
+        "product_aQEVJH",
+        "product_Rjm667",
+        "product_XBTqpN"
+      ],
+      "settings": {
+        "products_per_page": 4
       }
     }
   },
@@ -219,6 +241,7 @@
     "custom_catalog_6FNFWg",
     "image_banner_caWmx4",
     "rich_text_n9rmHY",
-    "custom_catalog_wHdWk9"
+    "custom_catalog_wHdWk9",
+    "stlv_list_product_gYeAXa"
   ]
 }

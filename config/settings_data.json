@@ -1,6 +1,6 @@
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/b839bfd68658d8768f602b5e214f5587.png",
+    "logo": "shopify:\/\/shop_images\/88b9ad7aeb54ee88c1c922d86e1717dc_5c740bce-a5ba-430e-857d-3118f42ae122.png",
     "logo_width": 80,
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
@@ -10,6 +10,7 @@
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
+    "animations_reveal_on_scroll": true,
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
     "buttons_radius": 0,
@@ -34,7 +35,7 @@
     "card_style": "standard",
     "card_image_padding": 0,
     "card_text_alignment": "left",
-    "card_color_scheme": "scheme-2",
+    "card_color_scheme": "scheme-4",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
     "card_corner_radius": 0,
@@ -97,9 +98,9 @@
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_image": "shopify:\/\/shop_images\/b839bfd68658d8768f602b5e214f5587.png",
     "social_facebook_link": "",
-    "social_instagram_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/stlv.club\/",
     "social_youtube_link": "",
-    "social_tiktok_link": "",
+    "social_tiktok_link": "https:\/\/www.tiktok.com\/@stilove.ua",
     "social_twitter_link": "",
     "social_snapchat_link": "",
     "social_pinterest_link": "",
@@ -113,6 +114,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "cart_color_scheme": "scheme-4",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
