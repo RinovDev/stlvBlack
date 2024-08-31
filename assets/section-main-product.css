@@ -225,6 +225,7 @@ product-info {
 .product__info-container .product__description,
 .product__info-container .icon-with-text {
   margin: 2.5rem 0;
+  
 }
 
 .product__text {
@@ -245,6 +246,12 @@ a.product__text {
   text-align: center;
   word-break: break-word;
   margin-bottom: 1.5rem;
+
+}
+.product__title h1{
+  font-family: Jura;
+  font-size:1.5em;
+  margin-bottom: 2em;
 }
 
 .product__title > * {
@@ -300,6 +307,11 @@ a.product__text {
 
 .product__description-title {
   font-weight: 600;
+  font-family: Jura;
+}
+
+.product__description{
+  font-family: Jura;
 }
 
 .product--no-media .product__title,
@@ -362,6 +374,12 @@ a.product__text {
 
 .product-form__buttons {
   max-width: 44rem;
+  background:none;
+}
+
+.product-form__buttons button{
+  color:white;
+  background:none;
 }
 
 .product--no-media .product__info-container > modal-opener {

@@ -18,13 +18,38 @@
     color: white;
     font-family: Unbounded;
     font-size:2.5rem;
+    margin-bottom:0.5em;
+  }
+
+  .custom_rich_p2 {
+  font-family: Roboto Mono;
+  position: relative; /* Для использования относительного позиционирования */
+  padding-bottom: 20px; /* Добавляем отступ, чтобы полоска не перекрывала текст */
+}
+
+.custom_rich_p2::after {
+  content: ""; /* Пустой контент для создания полоски */
+  display: block;
+  background: yellow; /* Цвет полоски */
+  width: 20%; /* Ширина полоски - в два раза меньше полной ширины */
+  height: 2px; /* Высота полоски - в два раза меньше предыдущей высоты */
+  position: absolute; /* Абсолютное позиционирование */
+  bottom: 0; /* Расположение внизу элемента */
+  left: 50%; /* Выравнивание по центру по горизонтали */
+  transform: translateX(-50%); /* Центрирование полоски относительно её ширины */
+}
+
+
+@media screen and (max-width: 750px) {
+  .custom_rich_h2{
+    font-size:1em;
   }
 
   .custom_rich_p2{
-    font-family: Roboto Mono;
-   
-
+    font-size:0.7em;
   }
+}
+
 {%- endstyle -%}
 
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
@@ -73,8 +98,13 @@
               >
             {% when 'p_text' %}
                      <p class ="custom_rich_p2 scroll-trigger animate--slide-in ">{{ block.settings.p_text }}</p>
+                     
                    
               </div>
+
+        
+
+            
            
             {%- when 'button' -%}
               <div

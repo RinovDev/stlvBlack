@@ -116,6 +116,8 @@ class CartItems extends HTMLElement {
           console.error(e);
         });
     }
+
+    
   }
 
   getSectionsToRender() {
@@ -217,6 +219,8 @@ class CartItems extends HTMLElement {
       .finally(() => {
         this.disableLoading(line);
       });
+
+      console.log("updateQuantity")
   }
 
   updateLiveRegions(line, message) {

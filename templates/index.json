@@ -13,8 +13,9 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "\"ПЕКЛО З НЕБЕС\" В КОЛАБОРАЦІЇ З ПІДРОЗДІЛОМ \"ГОСТРІ КАРТУЗИ\" ПРИБУТОК З ЦЬОГО ПРІНТА ПІДЕ ХЛОПЦЯМ НА ЗАКУПІВЛЮ FPV",
-            "text_style": "caption-with-letter-spacing"
+            "paragraph_text": "\"Пекло з небес\" в колаборації з підрозділом \"Гострі Картузи\"<br>\nприбуток з цього принта піде хлопцям на закупівлю FPV",
+            "text": "",
+            "text_style": "subtitle"
           }
         },
         "button": {
@@ -88,7 +89,7 @@
           "type": "first_block",
           "settings": {
             "first_image": "shopify:\/\/shop_images\/7595ecabd1de49f46fabb7284ca3a07d.jpg",
-            "first_text": "КАТАЛОГ ПРИНТІВ",
+            "first_text": "ПРИНТИ",
             "show_first_text": true,
             "first_button_text": "ПЕРЕГЛЯНУТИ ВСІ ПРІНТИ",
             "show_first_button": true,
@@ -100,7 +101,7 @@
           "type": "first_block",
           "settings": {
             "first_image": "shopify:\/\/shop_images\/d97ce189598b80d078a4def0ef9be7c9.jpg",
-            "first_text": "КАТАЛОГ РЕЧЕЙ",
+            "first_text": "РЕЧІ",
             "show_first_text": true,
             "first_button_text": "ПЕРЕГЛЯНУТИ ВСІ РЕЧІ",
             "show_first_button": true,
@@ -146,6 +147,35 @@
         "show_text_below": false
       }
     },
+    "featured_collection_reMEp7": {
+      "type": "featured-collection",
+      "settings": {
+        "collection2": "футболки-oversizes",
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "топ-продаж",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-4",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 72,
+        "padding_bottom": 0
+      }
+    },
     "rich_text_n9rmHY": {
       "type": "rich-text",
       "blocks": {
@@ -169,69 +199,31 @@
         "padding_bottom": 20
       }
     },
-    "custom_catalog_wHdWk9": {
-      "type": "custom-catalog",
+    "social_video_section_CedN3U": {
+      "type": "social-video-section",
       "blocks": {
-        "instagram_video_QcT9B7": {
-          "type": "instagram-video",
-          "settings": {
-          }
-        },
-        "tiktok_video_ijWFgP": {
+        "tiktok_video_tRnK6y": {
           "type": "tiktok_video",
           "settings": {
           }
         },
-        "tg_WNqfAc": {
+        "instagram_video_WRcMDp": {
+          "type": "instagram_video",
+          "settings": {
+          }
+        },
+        "tg_DRQ4gf": {
           "type": "tg",
           "settings": {
           }
         }
       },
       "block_order": [
-        "instagram_video_QcT9B7",
-        "tiktok_video_ijWFgP",
-        "tg_WNqfAc"
+        "tiktok_video_tRnK6y",
+        "instagram_video_WRcMDp",
+        "tg_DRQ4gf"
       ],
       "settings": {
-      }
-    },
-    "stlv_list_product_gYeAXa": {
-      "type": "stlv-list-product",
-      "blocks": {
-        "product_r3RW3m": {
-          "type": "product",
-          "settings": {
-            "product": "худи-кортуз"
-          }
-        },
-        "product_aQEVJH": {
-          "type": "product",
-          "settings": {
-            "product": "худи-кортуз"
-          }
-        },
-        "product_Rjm667": {
-          "type": "product",
-          "settings": {
-            "product": "худи-кортуз"
-          }
-        },
-        "product_XBTqpN": {
-          "type": "product",
-          "settings": {
-            "product": "худи-кортуз"
-          }
-        }
-      },
-      "block_order": [
-        "product_r3RW3m",
-        "product_aQEVJH",
-        "product_Rjm667",
-        "product_XBTqpN"
-      ],
-      "settings": {
-        "products_per_page": 4
       }
     }
   },
@@ -240,8 +232,8 @@
     "rich_text",
     "custom_catalog_6FNFWg",
     "image_banner_caWmx4",
+    "featured_collection_reMEp7",
     "rich_text_n9rmHY",
-    "custom_catalog_wHdWk9",
-    "stlv_list_product_gYeAXa"
+    "social_video_section_CedN3U"
   ]
 }

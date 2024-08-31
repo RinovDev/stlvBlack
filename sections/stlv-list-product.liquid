@@ -26,19 +26,11 @@
   {% endschema %}
   
   {% stylesheet %}
-  /* Flexbox styles */
-  .product-list-custom {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-  }
-  
+  /* Add any specific styles here */
   .product-card {
-    flex: 1 1 calc(25% - 20px); /* Adjust the percentage for number of items per row */
     border: 1px solid #e1e1e1;
     padding: 20px;
-    box-sizing: border-box;
+    margin: 20px;
     text-align: center;
   }
   
@@ -64,10 +56,10 @@
   }
   {% endstylesheet %}
   
-  <div class="product-list-custom">
+  <div class="product-list-custom grid grid--4-col">
     {% for block in section.blocks %}
       {% assign product = block.settings.product %}
-      <div class="product-card">
+      <div class="grid__item product-card">
         <a href="{{ product.url }}">
           {% if product.featured_image %}
             <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}">

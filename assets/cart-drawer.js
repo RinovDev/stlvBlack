@@ -88,6 +88,8 @@ class CartDrawer extends HTMLElement {
       this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
       this.open();
     });
+    
+
   }
 
   getSectionInnerHTML(html, selector = '.shopify-section') {
@@ -95,6 +97,7 @@ class CartDrawer extends HTMLElement {
   }
 
   getSectionsToRender() {
+    
     return [
       {
         id: 'cart-drawer',
@@ -104,6 +107,8 @@ class CartDrawer extends HTMLElement {
         id: 'cart-icon-bubble',
       },
     ];
+    
+    console.log('getSectionsToRender');
   }
 
   getSectionDOM(html, selector = '.shopify-section') {
@@ -135,3 +140,8 @@ class CartDrawerItems extends CartItems {
 }
 
 customElements.define('cart-drawer-items', CartDrawerItems);
+
+
+
+
+

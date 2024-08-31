@@ -11,46 +11,10 @@
     "collection_list_Q9yUWn": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_QGV9En": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "світшоти-oversize"
-          }
-        },
-        "featured_collection_GN9fbq": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "толстовки-oversize"
-          }
-        },
-        "featured_collection_fKKzKN": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "футболки-oversizes"
-          }
-        },
-        "featured_collection_R7tGJM": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "світшоти-oversize"
-          }
-        },
-        "featured_collection_r4wYak": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "толстовки-oversize"
-          }
-        },
-        "featured_collection_3ec4Ca": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "світшоти-oversize"
-          }
-        },
         "featured_collection_n7fJJE": {
           "type": "featured_collection",
           "settings": {
-            "collection": "толстовки-oversize"
+            "collection": "футболки"
           }
         },
         "featured_collection_VQm3mE": {
@@ -58,24 +22,60 @@
           "settings": {
             "collection": "футболки-oversizes"
           }
+        },
+        "featured_collection_fKKzKN": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "худі"
+          }
+        },
+        "featured_collection_G84YMt": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "худі-на-застібці"
+          }
+        },
+        "featured_collection_RtfA8b": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "шорти"
+          }
+        },
+        "featured_collection_WjX7Wp": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "штани"
+          }
+        },
+        "featured_collection_Unw4mn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "кепки"
+          }
+        },
+        "featured_collection_RB6ejT": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "прапори"
+          }
         }
       },
       "block_order": [
-        "featured_collection_QGV9En",
-        "featured_collection_GN9fbq",
-        "featured_collection_fKKzKN",
-        "featured_collection_R7tGJM",
-        "featured_collection_r4wYak",
-        "featured_collection_3ec4Ca",
         "featured_collection_n7fJJE",
-        "featured_collection_VQm3mE"
+        "featured_collection_VQm3mE",
+        "featured_collection_fKKzKN",
+        "featured_collection_G84YMt",
+        "featured_collection_RtfA8b",
+        "featured_collection_WjX7Wp",
+        "featured_collection_Unw4mn",
+        "featured_collection_RB6ejT"
       ],
       "settings": {
         "title": "",
         "heading_size": "h2",
         "image_ratio": "portrait",
         "columns_desktop": 4,
-        "color_scheme": "",
+        "color_scheme": "scheme-4",
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,

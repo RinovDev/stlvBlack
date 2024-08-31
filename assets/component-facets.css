@@ -265,7 +265,7 @@
   background-color: rgb(var(--color-background));
   position: absolute;
   top: calc(100% + 0.5rem);
-  left: -1.2rem;
+  left: 0; /* Попробуйте это значение */
   width: 35rem;
   max-height: 55rem;
   overflow-y: auto;
@@ -755,13 +755,14 @@ a.active-facets__button.focused .active-facets__button-inner {
 
 .mobile-facets__inner {
   background-color: rgb(var(--color-background));
-  width: calc(100% - 5rem);
+  width: 100%;
   margin-left: auto;
   height: 100%;
   overflow-y: auto;
   pointer-events: all;
   transition: transform var(--duration-default) ease;
-  max-width: 37.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   border-color: rgba(var(--color-foreground), var(--drawer-border-opacity));
@@ -778,7 +779,7 @@ a.active-facets__button.focused .active-facets__button-inner {
 }
 
 .js .disclosure-has-popup:not(.menu-opening) .mobile-facets__inner {
-  transform: translateX(105vw);
+
 }
 
 .mobile-facets__header {
@@ -1237,5 +1238,12 @@ input.mobile-facets__checkbox {
 
   .facets-vertical .active-facets__button-remove {
     padding: 0 1rem 1rem;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .facets__display {
+    left: 0; /* Выравнивание меню по левому краю */
+    right: auto; /* Убедитесь, что нет правого выравнивания */
   }
 }

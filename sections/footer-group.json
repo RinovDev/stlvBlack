@@ -12,25 +12,26 @@
             "menu": "footer"
           }
         },
-        "image_frapKp": {
+        "image_Gm7arR": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/b839bfd68658d8768f602b5e214f5587.png",
-            "image_width": 220,
+            "image": "shopify:\/\/shop_images\/88b9ad7aeb54ee88c1c922d86e1717dc_5c740bce-a5ba-430e-857d-3118f42ae122.png",
+            "image_width": 235,
             "alignment": "center"
           }
         },
         "footer-2": {
           "type": "text",
           "settings": {
-            "heading": "Ще текст",
-            "subtext": "<p>Щось важливе<\/p>"
+            "show_icon_in_block": true,
+            "heading": "НАШІ КОНТАКТИ",
+            "subtext": "<p>stlv.club (c) 2024<\/p>"
           }
         }
       },
       "block_order": [
         "footer-0",
-        "image_frapKp",
+        "image_Gm7arR",
         "footer-2"
       ],
       "settings": {
@@ -38,7 +39,7 @@
         "newsletter_enable": false,
         "newsletter_heading": "Subscribe to our emails",
         "enable_follow_on_shop": false,
-        "show_social": true,
+        "show_social": false,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": false,

@@ -10,37 +10,55 @@
 
   .collection-hero{
     color:white;
-    background:grey;
+    background: #3D3D3D;
   }
 
   .collection-hero h1{
     color:white;
   }
 
-  .collection-hero__image-container{
-    background:grey;
-    border:none;
-  }
-
   .collection-hero__image-container img{
     object-fit:contain;
   }
+
+  .collection-hero__image-container {
+    background:none;
+  }
+
+  
 
   .prints-title{
     display:flex;
     justify-content:center;
     align-items:center;
   }
+
+  .prints-title h2{
+    color:white;
+    font-family: Unbounded;
+    text-align:center;
+    font-size:1.4em;
+  }
+
+
+
+  {% if collection.metafields.filters.category %}
+   #main-collection-filters{
+    display:none;
+   }
+    
+  {% endif %}
 {%- endstyle -%}
 
-{% if collection.metafields.filters.category %}
 
-  <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  {%if collection.metafields.filters.category%}
+
+  <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }}">
     <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
 
 
       {%- if section.settings.show_collection_image and collection.image -%}
-        <div class="collection-hero__image-container media gradient">
+        <div class="collection-hero__image-container media ">
           <img
             srcset="
               {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -75,15 +93,15 @@
     </div>
   </div>
   
-{% endif %}
 
 
-<div class = "prints-title page-width">
-  {% if collection.metafields.filters.category %}
-    <h1 style ="font-weight: bold;">ПРІНТ МОЖНА ПРИДБАТИ НА ЦИХ РЕЧАХ</h1>
-    
-  {% endif %}
+      {% endif %}
+{% if collection.metafields.filters.category %}      
+  <div class = "prints-title page-width"> 
+    <h2>ПРІНТ МОЖНА ПРИДБАТИ НА ЦИХ РЕЧАХ</h2>
 </div>
+   
+{% endif %}
 
 {% schema %}
 {

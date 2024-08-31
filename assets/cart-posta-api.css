@@ -1,0 +1,124 @@
+.drawer {
+  visibility: hidden;
+}
+
+.cart__ctas button {
+  background: none;
+  box-shadow: none;
+  border: 1px solid;
+  font-family: Unbounded;
+  font-weight: 100;
+}
+
+.drawer__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cart__contents {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+cart-drawer-items {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+.nova-posta-form {
+  padding-left: 20px;
+  overflow-y: auto;
+  flex: 2;
+}
+
+.drawer__footer {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .cart__contents {
+    flex-direction: column;
+  }
+
+  cart-drawer-items {
+    max-width: 50%;
+  }
+
+  .nova-posta-form {
+    padding-left: 0;
+    border-left: none;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
+
+.container-cart-wrapper {
+  display: flex;
+  width: 100%;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+.driver-items {
+  flex: 3;
+  height: 100%;
+}
+
+.np-form__inputs{
+  background: none;
+  font-size:1.1em;
+  border: 1px solid;
+  color:white;
+  margin-bottom:10px;
+  font-family: Roboto Mono;
+  width: 100%;
+}
+
+.form-container{
+  padding-top:30px;
+}
+
+.button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes errorBlink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: red; }
+}
+
+.input-error {
+  animation: errorBlink 0.5s 3;
+}
+
+.error-message {
+  color: red;
+  background-color: #ffeeee;
+  border: 1px solid red;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  display: none;
+}
+
+.select-selected{
+  border:1px solid white;
+  margin-bottom:10px;
+}
+
+.empty-cart-button{
+  background: none;
+  box-shadow: none;
+  border: 1px solid;
+  font-family: Unbounded;
+  font-weight: 100;
+  color:white;
+  cursor: pointer;
+  font-size:1.1em;
+  padding:10px 20px;
+}

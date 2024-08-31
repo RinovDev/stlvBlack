@@ -1,215 +1,278 @@
 {% schema %}
-{
-  "name": "Custom Header",
-  "blocks": [
-    {
-      "type": "tg",
-      "name": "tg",
-      "settings": []  
-    },
-    {
-      "type": "instagram-video",
-      "name": "instagram-video",
-      "settings": []  
-    },
-    {
-      "type": "tiktok_video",
-      "name": "TikTok Video",
-      "settings": []  
-    },
-
-    {
-      "type": "first_block",
-      "name": "New Block",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "first_image",
-          "label": "First Image"
-        },
-        {
-          "type": "text",
-          "id": "first_text",
-          "label": "First Text",
-          "default": "Your Text"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_first_text",
-          "label": "Показати текст"
-        },
-        {
-          "type": "text",
-          "id": "first_button_text",
-          "label": "First Button Text",
-          "default": "Перейти"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_first_button",
-          "label": "Показати кнопку"
-        },
-        {
-          "type": "text",
-          "id": "first_paragraph_text",
-          "label": "First Paragraph Text",
-          "default": "Переглянути наші речі"
-        },
-        {
-          "type": "text",
-          "id": "first_button_url",
-          "label": "First Button URL",
-          "default": "#"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Custom Header",
-      "category": "Custom"
-    }
-  ]
+  {
+    "name": "Custom Header",
+    "blocks": [
+      {
+        "type": "tg",
+        "name": "tg",
+        "settings": []
+      },
+      {
+        "type": "instagram-video",
+        "name": "instagram-video",
+        "settings": []
+      },
+      {
+        "type": "tiktok_video",
+        "name": "TikTok Video",
+        "settings": []
+      },
+      {
+        "type": "first_block",
+        "name": "New Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "first_image",
+            "label": "First Image"
+          },
+          {
+            "type": "text",
+            "id": "first_text",
+            "label": "First Text",
+            "default": "Your Text"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_first_text",
+            "label": "Показати текст"
+          },
+          {
+            "type": "text",
+            "id": "first_button_text",
+            "label": "First Button Text",
+            "default": "Перейти"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_first_button",
+            "label": "Показати кнопку"
+          },
+          {
+            "type": "text",
+            "id": "first_paragraph_text",
+            "label": "First Paragraph Text",
+            "default": "Переглянути наші речі"
+          },
+          {
+            "type": "text",
+            "id": "first_button_url",
+            "label": "First Button URL",
+            "default": "#"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Header",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  <style>
+.custom-catalog_container {
+  margin-bottom: 15rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
 }
-{% endschema %}
 
-
-
-<style>
-  .custom-catalog_container {
-    margin-bottom:48px;
-    display: flex;
-    flex-wrap: wrap;
-    width:100%;
-    justify-content:center;
-  }
+.custom-catalog_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
  
-  .custom-catalog_section {
-    display:flex;
-    align-items: center;
-    justify-content:center;
-    width: 100%;
-    margin-bottom: 30px;
+  margin-bottom: 5%; 
+}
+
+.product-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  margin: 10px;
+  color: white;
+  position: relative;
+  min-height: 40rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center; /* Центрирование текста */
+}
+
+.product-block-content {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.product-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.product-block h2 {
+  color: white;
+  margin: 0;
+}
+
+.button-wrapper {
+  margin-top: 25rem;
+}
+
+.button-wrapper p {
+  margin: 0;
+}
+
+.button-wrapper button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background: none;
+  border: 1px solid;
+  color: white;
+  font-family: Unbounded;
+  font-size: 1.2rem;
+  transition: 0.5s ease;
+}
+
+.button-wrapper button:hover {
+  transform: scale(1.01);
+}
+
+.first_text {
+  position: absolute;
+  color: white;
+  font-family: Unbounded;
+  font-weight: 700;
+  font-size: 3em;
+  top: 70%;
+  left: 5%;
+}
+
+.custom-block {
+  max-width: 100%;
+  background-size: 100%;
+  transition: background-size 1s ease;
+  position: relative;
+}
+
+.custom-block:hover {
+  background-size: 105%;
+}
+
+.product-block-link {
+  flex: 1;
+  margin-right: 24px;
+}
+
+/* Добавление большого плюсика, который появляется снизу справа и вращается */
+.custom-block::after {
+  content: '+';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 4rem;
+  color: white;
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: opacity 0.3s ease, bottom 0.3s ease, right 0.3s ease, transform 0.3s ease;
+}
+
+.custom-block:hover::after {
+  opacity: 1;
+  bottom: 20px;
+  right: 20px;
+  transform: rotate(45deg);
+}
+
+/* Анимация появления и исчезновения плюсика для мобильной версии */
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg);
   }
-  .product-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) rotate(45deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-block::after {
+    animation: blink 2s infinite;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .custom-catalog_container {
     flex-direction: column;
-    flex: 1;
-    margin: 10px;
-    padding: 20px;
-    color: white;
-    position: relative;
-    min-height: 40rem;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center; /* Центрирование текста */
-  }
-  .product-block-content {
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-  }
-  .product-block::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-    opacity: 0.5;
+    margin-bottom: 5rem; /* Уменьшение нижнего отступа */
   }
 
-  .product-block h2 {
-    color: white;
-    margin: 0;
-  }
-  .button-wrapper {
-    margin-top: 25rem;
-  }
-  .button-wrapper p {
-    margin: 0;
-  }
-  .button-wrapper button {
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    background: none;
-    border: 1px solid;
-    color: white;
-    font-family: Unbounded;
-    font-size: 1.2rem;
-    transition: 0.5s ease;
+  .custom-catalog_section {
+    margin-top:30%;
+    margin-bottom:30%;
+  /* Уменьшение нижнего отступа */
   }
 
-  .button-wrapper button:hover {
-    transform: scale(1.01);
+  .product-block {
+    margin: 5px; /* Уменьшение отступов между блоками */
+    min-height: 30rem; /* Уменьшение минимальной высоты блоков */
   }
 
   .first_text {
-    position: absolute;
-    color: white;
-    font-family: Unbounded;
-    font-size: 3.5rem;
-  }
-  .custom-block {
-    
-    max-width:100%;
-    background-size:100%;
-    transition: background-size 1s ease;
+    font-size: 2em;
   }
 
-  .custom-block:hover {
-
-   background-size: 105%;
+  .button-wrapper {
+    margin-top: 10rem; /* Уменьшение отступа сверху */
   }
 
-  .product-block-link{
-    flex:1;
-    margin-right: 24px;
-  
-    
+  .button-wrapper button {
+    font-size: 1rem; /* Уменьшение размера кнопки */
   }
-
-
 
   
-</style>
+}
 
-<div class="custom-catalog_section scroll-trigger animate--slide-in">
-  <div class=" page-width custom-catalog_container">
-    {% for block in section.blocks %}
-     {% case block.type %}
-     {%when 'first_block'%}
-      <a href="{{ block.settings.first_button_url }}" class="product-block-link " ">
-        <div class="product-block custom-block" style="background-image: url({{ block.settings.first_image | img_url: 'master' }});">
-          {% if block.settings.show_first_text %}
-            <h2 class="first_text">{{ block.settings.first_text }}</h2>
-          {% endif %}
-          <div class="product-block-content">
-            <div class="button-wrapper">
-              {% if block.settings.show_first_button %}
-                <p>{{ block.settings.first_paragraph_text }}</p>
-                <button>{{ block.settings.first_button_text }}</button>
-              {% endif %}
-            </div>
+  </style>
+  
+  <div class="custom-catalog_section scroll-trigger animate--slide-in">
+    <div class="page-width custom-catalog_container">
+      {% for block in section.blocks %}
+        {% case block.type %}
+        {% when 'first_block' %}
+        <a href="{{ block.settings.first_button_url }}" class="product-block-link">
+          <div class="product-block custom-block" style="background-image: url({{ block.settings.first_image | img_url: 'master' }});">
+            {% if block.settings.show_first_text %}
+              <h2 class="first_text">{{ block.settings.first_text }}</h2>
+            {% endif %}
           </div>
-        </div>
-      </a>
-      
-      {%when 'tiktok_video'%}
-        {%render 'tiktok-video'%}
-      {%when 'instagram-video'%}
-        {%render 'instagram'%}
-      {%when 'tg'%}
-        {%render 'tg'%}
-      {% endcase %}
-      
-    {% endfor %}
+        </a>
+    
+        {% when 'tiktok_video' %}
+          {% render 'tiktok-video' %}
+        {% when 'instagram-video' %}
+          {% render 'instagram' %}
+        {% when 'tg' %}
+          {% render 'tg' %}
+        {% endcase %}
+      {% endfor %}
+    </div>
   </div>
-</div>
+  

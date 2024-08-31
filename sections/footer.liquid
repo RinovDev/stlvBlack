@@ -30,6 +30,22 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .stlv-social {
+    display:flex;
+    justify-content: flex-start;
+  }
+
+  .stlv-social ul{
+    padding:0;
+  }
+  .stlv-social p {
+    font-size: 12px;
+  }
+
+  .cstm_p{
+    font-size:12px;
+  }
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -89,7 +105,14 @@
                     {% render block %}
                   {%- when 'text' -%}
                     <div class="footer-block__details-content rte">
-                      {{ block.settings.subtext }}
+                      {%if block.settings.show_icon_in_block%}
+                        <div class="stlv-social">
+                          {%- render 'social-icons', class: 'footer__list-social' -%}
+                        </div>
+                 
+                      {%endif%}
+
+                      <p class="cstm_p"> STLV.CLUB ⓒ 2024 </p>
                     </div>
                   {%- when 'link_list' -%}
                     {%- if block.settings.menu != blank -%}
@@ -346,6 +369,7 @@
       "type": "brand_information",
       "name": "t:sections.footer.blocks.brand_information.name",
       "settings": [
+      
         {
           "type": "paragraph",
           "content": "t:sections.footer.blocks.brand_information.settings.paragraph.content"
@@ -367,6 +391,14 @@
       "type": "text",
       "name": "t:sections.footer.blocks.text.name",
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_icon_in_block",
+          "default": true,
+          "label": "Включить иконки социальных медиа"
+          
+
+        },
         {
           "type": "inline_richtext",
           "id": "heading",

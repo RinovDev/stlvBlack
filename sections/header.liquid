@@ -48,6 +48,7 @@
   }
 
   .list-menu {
+    
     font-family: Unbounded;
     list-style: none;
     padding: 0;
@@ -111,6 +112,30 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .header__heading-logo-wrapper .h2{
+    font-size:12px;
+    font-family: Unbounded;
+    position:absolute;
+    top:48%;
+    
+    
+  }
+
+  .header__inline-menu{
+    margin-left:24rem;
+  }
+
+
+  @media screen and (max-width: 768px) {
+
+    .header__heading-logo-wrapper .h2{
+      display:none;
+    }
+   
+  }
+
+  
 {%- endstyle -%}
 
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
@@ -189,9 +214,10 @@
                   sizes: sizes,
                   preload: true
                 }}
+                <span class="h2">STLV.CLUB</span>
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
@@ -229,7 +255,9 @@
                   sizes: sizes,
                   preload: true
                 }}
+                <span class="h2">STLV.CLUB</span>
               </div>
+              <div class="stlvname"></div>
             {%- else -%}
               <span class="h2">{{ shop.name }}</span>
             {%- endif -%}

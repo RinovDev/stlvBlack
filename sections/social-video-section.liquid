@@ -1,0 +1,86 @@
+{% schema %}
+  {
+    "name": "Social Media Blocks",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "tiktok_video",
+        "name": "TikTok Video",
+        "settings": []
+      },
+      {
+        "type": "instagram_video",
+        "name": "Instagram Video",
+        "settings": []
+      },
+      {
+        "type": "tg",
+        "name": "Telegram",
+        "settings": []
+      }
+    ],
+    "presets": [
+      {
+        "name": "Social Media Blocks",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+<style>
+  .social-media-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Использование Grid для распределения блоков */
+    gap: 5px; /* Установка отступа между блоками */
+    
+    margin-bottom:5%;
+  }
+
+  .social-media-block {
+    max-width: 30px;
+    text-align: center;
+    box-sizing: border-box; /* Учет отступов и границ внутри блока */
+    transition: transform 0.3s ease;
+    
+  }
+
+  .social-media-block:hover{
+    transform: translateY(-10px)
+  }
+
+  @media (max-width: 768px) {
+    .social-media-section {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Изменение ширины блоков для планшетов */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .social-media-section {
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Изменение ширины блоков для мобильных устройств */
+      margin-left:0.5em;
+    }
+  }
+</style>
+
+
+
+<div class="social-media-section page-width">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'tiktok_video' %}
+        <div class="social-media-block">
+          {% render 'tiktok-video' %}
+        </div>
+      {% when 'instagram_video' %}
+        <div class="social-media-block">
+          {% render 'instagram' %}
+        </div>
+      {% when 'tg' %}
+        <div class="social-media-block">
+          {% render 'tg' %}
+        </div>
+    {% endcase %}
+  {% endfor %}
+</div>
+
+  

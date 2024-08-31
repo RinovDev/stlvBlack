@@ -1,0 +1,7 @@
+{% if collection.products_count > 0 %}
+  <div class="products-grid">
+    {% for product in collection.products limit: section.settings.products_to_show %}
+      {% render 'product-card', product: product %}
+    {% endfor %}
+  </div>
+{% endif %}

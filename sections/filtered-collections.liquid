@@ -10,7 +10,6 @@
   .prints-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 3px;
     flex: 5;
   }
 
@@ -19,8 +18,7 @@
     flex-direction: column;
     margin-bottom: 10px;
     flex: 1;
-    gap:1rem;
-    
+    gap: 1rem;
   }
 
   .collection-filters button {
@@ -37,7 +35,7 @@
   .collection-filters button:hover {
     color: grey;
     transform: scale(1.1);
-    cursor:pointer;
+    cursor: pointer;
   }
 
   .collection-filters button::before {
@@ -69,9 +67,9 @@
   }
 
   .collection-item {
-    width: 20%;
-    text-align:center;
-    margin: 0 1.5em 3em;
+    width: 25%;
+    text-align: center;
+    margin: 0 0 1em;
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -79,7 +77,7 @@
   }
 
   .prints-content:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
   }
 
   .collection-item img {
@@ -89,14 +87,30 @@
   }
 
   .prints-content {
-    background: #F5F5F5;
-    border-radius: 3rem;
+    background: none;
+    border: 1px solid;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: transform 0.5s ease;
+  }
+
+  .prints-content img {
+    transition: 1s ease;
+  }
+
+  .prints-content img:hover {
+    transform: scale(1.05);
+  }
+
+  .prints-content h3 {
+    color: white;
+  }
+
+  .prints-content a {
+    text-decoration: none;
   }
 
   .collection-item.visible {
@@ -107,7 +121,7 @@
 
   @media screen and (max-width: 768px) {
     .collection-item {
-      width: 100%;
+      width: 50%;
     }
 
     .all-collections-section {
@@ -115,40 +129,77 @@
       justify-content: center;
       align-items: baseline;
     }
+    .prints-container {
+      margin-top:2em;
+    }
   }
-  .filter-button{
-    font-family: Assistant;
-    cursor:pointer;
+
+  .filter-button {
+    color: white;
+    font-family: Unbounded;
+    cursor: pointer;
     touch-action: manipulation;
   }
-  .custom_h3{
-    font-weight:100;
-    margin:0;
+
+  .view-collection-button {
+    background: none;
+    color: white;
+    border: 1px solid;
+    padding: 10px 20px;
+    font-size: 0.7em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    font-family: Unbounded;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .view-collection-button:hover {
+    background-color: #2b2b2b;
+  }
+
+  .custom_h3 {
+    color: white;
+    font-family: Unbounded;
   }
 </style>
 
- <div class="page-width all-collections-section scroll-trigger animate--slide-in">
+<div class="page-width all-collections-section scroll-trigger animate--slide-in">
   <div class="collection-filters">
-    <h3 class ="custom_h3">Категорія</h3>
+    <h3 class="custom_h3">КАТЕГОРІЯ</h3>
     <button class="filter-button" data-filter="all">All</button>
-    <button class="filter-button" data-filter="STLV">STLV</button>
-    <button class="filter-button" data-filter="SUNSET GOONS">SUNSET GOONS</button>
-    <button class="filter-button" data-filter="BLACK WHITE">BLACK WHITE</button>
-    <button class="filter-button" data-filter="GUNS">GUNS</button>
-  </div> 
-
-
+    {% for block in section.blocks %}
+      {% if block.type == 'filter' %}
+        <button class="filter-button" data-filter="{{ block.settings.filter_name }}">{{ block.settings.filter_name }}</button>
+      {% endif %}
+    {% endfor %}
+  </div>
 
   <div class="prints-container">
     <div class="collection-items">
-      {% for collection in collections %}
-        {% if collection.metafields.filters.category %}
-          <a href="{{ collection.url }}" class="collection-item visible" data-categories="{{ collection.metafields.filters.category }}">
-            <div class="prints-content">
-              <img src="{{ collection.image | image_url: width: 432, height: 550 }}" alt="image">
-              <h3>{{ collection.title }}</h3>
-            </div>
-          </a>
+      {% for block in section.blocks %}
+        {% if block.type == 'collection' %}
+          {% for i in (1..8) %}
+            {% capture collection_handle_key %}collection_{{ i }}{% endcapture %}
+            {% capture add_collection_key %}add_collection_{{ i }}{% endcapture %}
+            {% assign collection_handle = block.settings[collection_handle_key] %}
+            {% assign add_collection = block.settings[add_collection_key] %}
+            {% if collection_handle and add_collection %}
+              {% assign collection = collections[collection_handle] %}
+              {% if collection %}
+                <div class="collection-item visible" data-categories="{{ collection.metafields.filters.category }}">
+                  <div class="prints-content">
+                    <a href="{{ collection.url }}" class="collection-link">
+                      <img src="{{ collection.image | image_url: width: 432, height: 550 }}" alt="image" class="print_img">
+                      <h3>{{ collection.title }}</h3>
+                      <button class="view-collection-button">ДЕТАЛЬНІШЕ</button>
+                    </a>
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     </div>
@@ -186,20 +237,130 @@
 </script>
 
 {% schema %}
-{
-  "name": "Collections Section",
-  "settings": [
+  {
+    "name": "Collections Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section Heading",
+        "default": "Our Collections"
+      }
+    ],
+    
+  "blocks": [
     {
-      "type": "text",
-      "id": "section_heading",
-      "label": "Section Heading",
-      "default": "Our Collections"
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection_1",
+          "label": "Select Collection 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_collection_1",
+          "label": "Добавить коллекцию 1",
+          "default": false
+        },
+        {
+          "type": "collection",
+          "id": "collection_2",
+          "label": "Select Collection 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_collection_2",
+          "label": "Добавить коллекцию 2",
+          "default": false
+        },
+        {
+          "type": "collection",
+          "id": "collection_3",
+          "label": "Select Collection 3"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_collection_3",
+          "label": "Добавить коллекцию 3",
+          "default": false
+        },
+        {
+          "type": "collection",
+          "id": "collection_4",
+          "label": "Select Collection 4"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_collection_4",
+          "label": "Добавить коллекцию 4",
+          "default": false
+        },
+        {
+          "type": "collection",
+          "id": "collection_5",
+          "label": "Select Collection 5"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_collection_5",
+          "label": "Добавить коллекцию 5",
+          "default": false
+        },
+        {
+          "type": "collection",
+          "id": "collection_6",
+          "label": "Select Collection 6"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_collection_6",
+          "label": "Добавить коллекцию 6",
+          "default": false
+        },
+        {
+          "type": "collection",
+          "id": "collection_7",
+          "label": "Select Collection 7"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_collection_7",
+          "label": "Добавить коллекцию 7",
+          "default": false
+        },
+        {
+          "type": "collection",
+          "id": "collection_8",
+          "label": "Select Collection 8"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_collection_8",
+          "label": "Добавить коллекцию 8",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "filter",
+      "name": "Filter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "filter_name",
+          "label": "Filter Name"
+        }
+      ]
     }
   ],
-  "presets": [
-    {
-      "name": "Filtered Collections"
-    }
-  ]
-}
-{% endschema %}
+    "presets": [
+      {
+        "name": "Filtered Collections"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  

@@ -48,15 +48,16 @@
 
   .custom_p{
     color:white;
-    line-height: 2rem;
+    line-height: 1.4em;
     font-size:1.1em;
-    font-family: Roboto Mono;
+    font-family: Jura;
   }
 
   .custom_button{
     background: none;
     transition: 1s ease;
     border: 1px solid;
+    
    
   }
 
@@ -68,12 +69,31 @@
   .custom_btn{
     color:white;
     font-family: Unbounded;
-    font-size:3rem;
+    font-size:1.3em;
     font-weight:100;
    
   }
 
+  @media screen and (max-width: 768px) {
 
+  .custom_h2{
+    font-family: aAbsoluteEmpire;
+    font-size: 2.5em;
+    color:#ffd837;
+  }
+
+  .custom_p{
+    font-size:0.55em;
+  }
+
+  .custom_btn{
+    font-size:1em;
+  }
+  .custom2_h2{
+    font-size:1.5em;
+  }
+   
+  }
     
   
 
@@ -190,7 +210,7 @@
                 {% if section.settings.our_custom_fonts %}
                    custom_p
                 {% endif %}"
-              >{{ block.settings.text }}</p>
+              >{{ block.settings.paragraph_text }}</p>
             </div>
           {%- when 'buttons' -%}
             <div
@@ -230,6 +250,8 @@
       {%- endfor -%}
     </div>
   </div>
+
+  
 </div>
 
 {% schema %}
@@ -487,6 +509,11 @@
       "name": "t:sections.image-banner.blocks.text.name",
       "limit": 1,
       "settings": [
+        {
+            "id": "paragraph_text",
+            "type": "textarea",
+            "label": "Paragraph Text"
+          },
         {
           "type": "inline_richtext",
           "id": "text",
