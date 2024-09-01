@@ -419,3 +419,9 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
 .cart__ctas{
   margin-left: 10rem;
 }
+
+@media (max-width: 768px) {
+  .cart__ctas{
+    margin-left: 0.5rem;
+  }
+}

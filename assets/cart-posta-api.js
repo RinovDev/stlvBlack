@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  //НОВАЯ ПОЧТА АПИ//
-  ////////////////////
-  // Асинхронная функция для получения предложений городов
   async function fetchCitySuggestions(query) {
     try {
       const response = await fetch(`https://limitless-beach-64457-3699b9a1e5e2.herokuapp.com/get-cities?query=${query}`);
@@ -12,14 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Функция для получения почтоматов по городу
   async function fetchBranches(cityRef) {
     try {
       const response = await fetch(`https://limitless-beach-64457-3699b9a1e5e2.herokuapp.com/get-branches?cityRef=${cityRef}`);
       const branches = await response.json();
 
       const branchItems = document.getElementById('branch-items');
-      branchItems.innerHTML = ''; // Очистка существующих элементов
+      branchItems.innerHTML = '';
 
       branches.forEach(branch => {
         const div = document.createElement('div');
@@ -36,21 +32,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   let isDropdownOpen = false;
-  // Функция для открытия выпадающего списка
+
   function openDropdown() {
     document.getElementById('branch-items').style.display = 'block';
     document.querySelector('.select-selected').classList.add('select-arrow-active');
     isDropdownOpen = true;
   }
 
-  // Функция для закрытия выпадающего списка
   function closeDropdown() {
     document.getElementById('branch-items').style.display = 'none';
     document.querySelector('.select-selected').classList.remove('select-arrow-active');
     isDropdownOpen = false;
   }
 
-  // Обработчик клика для открытия/закрытия выпадающего списка
   const selectElement = document.querySelector('.select-selected');
   if (selectElement) {
     selectElement.addEventListener('click', function(e) {
@@ -63,31 +57,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Обработчик клика по документу для закрытия выпадающего списка при клике вне его
   document.addEventListener('click', function(e) {
+    // Закрываем выпадающий список, если клик был вне custom-select
     if (isDropdownOpen && !e.target.closest('.custom-select')) {
       closeDropdown();
     }
   });
 
-  // Обработчик ввода в поле города для получения предложений
   const cityInput = document.getElementById('city');
   if (cityInput) {
     cityInput.addEventListener('input', async function() {
-      const query = this.value;
+      // Очищаем поле "Почтомат", если пользователь снова вводит город
+      clearBranchSelection();
 
-      // Осуществляем запрос только если введено 3 и более символов
+      const query = this.value.trim();
+
       if (query.length >= 3) {
         const suggestions = await fetchCitySuggestions(query);
-
         const suggestionsContainer = document.getElementById('city-suggestions');
         suggestionsContainer.innerHTML = '';
+
+        let exactMatch = false;
 
         suggestions.forEach(city => {
           const suggestionElement = document.createElement('div');
           suggestionElement.classList.add('autocomplete-suggestion');
           suggestionElement.textContent = city.Description;
           suggestionElement.dataset.ref = city.Ref;
+
+          if (city.Description.toLowerCase() === query.toLowerCase()) {
+            exactMatch = true;
+            cityInput.value = city.Description;
+            suggestionsContainer.innerHTML = '';
+            fetchBranches(city.Ref);
+          }
 
           suggestionElement.addEventListener('click', function() {
             cityInput.value = city.Description;
@@ -97,11 +100,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
           suggestionsContainer.appendChild(suggestionElement);
         });
+
+        if (exactMatch) {
+          suggestionsContainer.innerHTML = '';
+        }
       }
     });
   }
 
-  // Проверка валидности формы
+  function clearBranchSelection() {
+    const branchSelect = document.querySelector('.select-selected');
+    branchSelect.textContent = 'Виберіть відділення';
+  }
+
   function checkFormValidity() {
     const fields = {
       'first-name': 'Імʼя',
@@ -140,7 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
     return { isValid, emptyFields };
   }
 
-  // Подсветка пустых полей формы
   function highlightEmptyFields() {
     const fields = ['first-name', 'last-name','phone', 'city'];
     fields.forEach(id => {
@@ -155,15 +165,13 @@ document.addEventListener('DOMContentLoaded', function() {
       branchSelect.classList.add('input-error');
     }
 
-    // Удаление класса input-error после анимации
     setTimeout(() => {
       document.querySelectorAll('.input-error').forEach(el => {
         el.classList.remove('input-error');
       });
-    }, 1500); // 1500мс (длительность анимации)
+    }, 1500);
   }
 
-  // Обновляем обработчик для выбора отделения
   function updateBranchSelection(branchName) {
     const branchSelect = document.querySelector('.select-selected');
     branchSelect.textContent = branchName;
@@ -181,7 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Обработчик клика по кнопке оформления заказа
   function handleCheckoutClick() {
     const fields = {
       city: document.getElementById('city').value.trim(),
@@ -195,7 +202,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let isValid = true;
     let emptyFields = [];
 
-    // Проверка на пустые поля
     for (let [key, value] of Object.entries(fields)) {
       if (!value) {
         isValid = false;
@@ -215,20 +221,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const checkoutUrl = `/checkout?${params.toString()}`;
 
-        console.log("City:", fields.city);
-        console.log("Branch:", fields.branch);
-        console.log("First Name:", fields.firstName);
-        console.log("Last Name:", fields.lastName);
-        console.log("Phone:", fields.phone);
-        console.log("Checkout URL:", checkoutUrl);
-
       setTimeout(() => {
         window.location.href = checkoutUrl;
       }, 500);
 
     } else {
       highlightEmptyFields();
-
     }
   }
 });

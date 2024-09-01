@@ -44,8 +44,17 @@ cart-drawer-items {
     flex-direction: column;
   }
 
+  .container-cart-wrapper {
+    flex-direction: column;
+  }
+
   cart-drawer-items {
-    max-width: 50%;
+    max-width: 100%;
+    
+  }
+
+  .drawer__close_footer{
+    display: none;
   }
 
   .nova-posta-form {
@@ -109,6 +118,7 @@ cart-drawer-items {
 .select-selected{
   border:1px solid white;
   margin-bottom:10px;
+  cursor: pointer;
 }
 
 .empty-cart-button{
