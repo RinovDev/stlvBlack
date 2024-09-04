@@ -152,7 +152,22 @@ cart-items {
 }
 
 .cart__ctas button {
-  min-width: 20rem
+  min-width: 20rem;
+  background: none;
+  box-shadow: none;
+  font-family: Unbounded;
+  font-weight: 100;
+
+}
+
+.drawer__close_footer{
+  border:1.4px solid;
+  cursor: pointer;
+  transition: scale  0.3s ease;
+}
+
+.drawer__close_footer:hover{
+  scale: 1.01;
 }
 
 
@@ -196,6 +211,8 @@ cart-items {
 
 .cart__ctas {
   text-align: center;
+  justify-content: flex-end;
+  flex:2;
 }
 
 @media screen and (min-width: 750px) {
@@ -226,5 +243,11 @@ cart-items {
 @media (max-width: 768px) {
   .cart__ctas button {
     min-width: 0;
+    padding: 10px;
+  }
+
+  .container-cart-wrapper{
+    display: block;
   }
 }
+

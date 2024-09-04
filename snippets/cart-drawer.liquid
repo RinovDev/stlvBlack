@@ -68,8 +68,9 @@
         </button>
       </div>
       <div class="container-cart-wrapper">
-        <cart-drawer-items class ="driver-items"
-          {% if cart == empty %}
+
+          <cart-drawer-items class ="driver-items"
+            {% if cart == empty %}
             class=" is-empty"
           {% endif %}
         >
@@ -449,7 +450,7 @@
             <form id="np-form" action="/send-np-info" method="POST" enctype="multipart/form-data">
               <!-- Логотип Новой Почты -->
                 <div class="np-logo-container">
-                  <img src="{{ 'c6d446a6-feabaadcec48e9e5a2d332e420ed123f.jpg' | file_img_url: 'medium' }}" alt="Новая Почта" class="np-logo">
+                  <img src="{{ 'nova-posta.png' | file_img_url: 'medium' }}" alt="Новая Почта" class="np-logo">
                 </div>
                 <!-- Імʼя -->
                 <div class="np-norm__input-container">
@@ -457,7 +458,7 @@
                 </div>
                 <!-- Призвище -->
                 <div class="np-norm__input-container">
-                    <input class="np-form__inputs" type="text" id="last-name" name="last_name" placeholder="Призвище" required>
+                    <input class="np-form__inputs" type="text" id="last-name" name="last_name" placeholder="Прізвище" required>
                 </div>
                 <!-- Телефон -->
                 <div class="np-norm__input-container">
@@ -470,21 +471,17 @@
                 </div>
                 <!-- Вдділення новою пошти або поштомат -->
                 <div class="np-norm__input-container">
-                    <div class="custom-select">
-                        <div class="select-selected">Виберіть відділення</div>
-                        <div class="select-items select-hide" id="branch-items">
-                            <!-- Опции будут добавлены динамически через JavaScript -->
-                        </div>
-                    </div>
+                    <input class="np-form__inputs" type="text" id="branch-search" name="branch" placeholder="Відділення або поштомат" required autocomplete="off">
+                    <div id="branch-suggestions" class="autocomplete-suggestions"></div>
                 </div>
                 <!-- Коментар до замовлення -->
                 <div class="np-norm__input-container">
-                    <textarea class="np-form__inputs" id="comment" name="comment" placeholder="Комента до замовення" rows="4"></textarea>
+                    <textarea class="np-form__inputs" id="comment" name="comment" placeholder="Коментар до замовлення" rows="4"></textarea>
                 </div>
             </form>
           </div>
         {%- endif -%}
-      
+
       </div>          
      </div>
       <div class="drawer__footer">

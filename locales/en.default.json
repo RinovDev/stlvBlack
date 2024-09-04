@@ -281,14 +281,14 @@
       }
     },
     "cart": {
-      "title": "Your cart",
-      "caption": "Cart items",
-      "remove_title": "Remove {{ title }}",
-      "estimated_total": "Estimated total",
+      "title": "Корзина",
+      "caption": "Товари в корзині",
+      "remove_title": "Видалити {{ title }}",
+      "estimated_total": "Оцінка загальної суми",
       "new_estimated_total": "New estimated total",
       "note": "Order special instructions",
       "checkout": "Придбати",
-      "empty": "Your cart is empty",
+      "empty": "Ваша корзина пуста",
       "cart_error": "There was an error while updating your cart. Please try again.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
       "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Duties and taxes included. Discounts and <a href=\"{{ link }}\">shipping<\/a> calculated at checkout.",
@@ -300,10 +300,10 @@
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Taxes, discounts and <a href=\"{{ link }}\">shipping<\/a> calculated at checkout.",
       "taxes_at_checkout_shipping_at_checkout_without_policy": "Taxes, discounts and shipping calculated at checkout.",
       "headings": {
-        "product": "Product",
-        "price": "Price",
-        "total": "Total",
-        "quantity": "Quantity",
+        "product": "Продукт",
+        "price": "Ціна",
+        "total": "ціна",
+        "quantity": "Кількість",
         "image": "Product image"
       },
       "update": "Update",
@@ -523,6 +523,84 @@
       "max_characters": "{{ max_chars }} characters max",
       "send_on": "YYYY-MM-DD",
       "send_on_label": "Send on (optional)"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "pay_now_button_label": "Підтвердити замовлення"
+      },
+      "contact": {
+        "contact_method_title": "Контактна інформація",
+        "email_or_phone_label": "Номер телефону ",
+        "first_name_label": "Імʼя",
+        "last_name_label": "Прізвище",
+        "address1_label": "№ Відділення або поштомату нової пошти ",
+        "city_label": "Місто",
+        "country_label": "Країна",
+        "postal_code_label": "Індекс (будь-яке значення, 5 цифр)"
+      },
+      "customer_account": {
+        "save_my_information_label": "Зберегти цю інформацію для наступного разу "
+      },
+      "order_summary": {
+        "gift_card_title": "Промокод",
+        "gift_card_label": "Промокод",
+        "gift_card_placeholder": "Промокод",
+        "apply_discount_button_label": "Підтвердити",
+        "subtotal_label": "Сума",
+        "shipping_label": "Доставка",
+        "total_label": "Разом",
+        "free_total_label": "За тарифами НП",
+        "confirmation_number_label": " Замовлення #{{confirmation_number}}"
+      },
+      "shipping": {
+        "shipping_method_title": "Доставка",
+        "free_rate_label": "За тарифами НП"
+      },
+      "payment": {
+        "title": "Оплата",
+        "apply_gift_card_button_label": "Підтвердити ",
+        "card_security_notice": "Всі транзакції безпечні та зашифровані.",
+        "card_security_vault_notice": "Всі транзакції безпечні та зашифровані.",
+        "card_information_notice": "Всі транзакції безпечні та зашифровані.",
+        "same_billing_address_label": "Я одержувач",
+        "different_billing_address_label": "Отримувати посилку буде інша людина",
+        "offsite_gateway_redirect_hint": "Після оплати ви будете направлені на сторінку Fondy, де зможете обрати зручний варіант оплати",
+        "billing_address_title": "Дані одержувача"
+      },
+      "field_errors": {
+        "email_or_phone_blank": "Введить номер телефону у форматі +380"
+      },
+      "shipping_errors": {
+        "empty_state": "Введіть адресу, щоб переглянути доступні способи доставки"
+      },
+      "processing": {
+        "wait": {
+          "short": "У процесі..."
+        }
+      },
+      "thank_you": {
+        "page_title": "Дякую {{display_name}}!",
+        "shipping_method_title": "Доставка",
+        "billing_address_title": "Дані одержувача"
+      },
+      "review": {
+        "blocks": {
+          "shipping_method_title": "Доставка"
+        }
+      },
+      "marketing": {
+        "accept_sms_checkbox_label": "Хочу отримувати інформацію про найкрутіші акції через SMS",
+        "sms": {
+          "disclaimer": {
+            "description_transactional_html": "За цим номером ми можемо з вами звʼязатися "
+          }
+        }
+      },
+      "payment_summary": {
+        "billing_address_title": "Дані одержувача"
+      }
     }
   }
 }

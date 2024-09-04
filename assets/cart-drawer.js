@@ -6,9 +6,14 @@ class CartDrawer extends HTMLElement {
     this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
     this.setHeaderCartIconAccessibility();
     
+
   }
 
+  // Добавим новый метод
+  initializeSearch() {
   
+      initializeCityAndBranchSearch();
+  };
 
   setHeaderCartIconAccessibility() {
     const cartLink = document.querySelector('#cart-icon-bubble');
@@ -26,13 +31,13 @@ class CartDrawer extends HTMLElement {
     });
   }
 
-  
-
   open(triggeredBy) {
+    this.initializeSearch();
+
     if (triggeredBy) this.setActiveElement(triggeredBy);
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
-    // here the animation doesn't seem to always get triggered. A timeout seem to help
+    
     setTimeout(() => {
       this.classList.add('animate', 'active');
     });
