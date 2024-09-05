@@ -239,7 +239,7 @@
         "one": "{{ count }} result found for “{{ terms }}”",
         "other": "{{ count }} results found for “{{ terms }}”"
       },
-      "title": "Search results",
+      "title": "",
       "search_for": "Search for “{{ terms }}”",
       "suggestions": "Suggestions",
       "pages": "Pages"
@@ -556,7 +556,8 @@
       },
       "shipping": {
         "shipping_method_title": "Доставка",
-        "free_rate_label": "За тарифами НП"
+        "free_rate_label": "За тарифами НП",
+        "delivery_title": "Доставка"
       },
       "payment": {
         "title": "Оплата",

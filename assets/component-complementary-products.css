@@ -61,7 +61,9 @@ product-recommendations:not(.is-accordion) .complementary-products__container {
   line-height: 1;
   padding: 1.5rem 0;
 }
-
+.summary__title h2{
+   font-family: 'Jura';
+}
 .accordion + product-recommendations .accordion,
 product-recommendations.is-accordion + .accordion {
   margin-top: 0;

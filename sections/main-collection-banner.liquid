@@ -97,9 +97,9 @@
 
       {% endif %}
 {% if collection.metafields.filters.category %}      
-  <div class = "prints-title page-width"> 
-    <h2>ПРІНТ МОЖНА ПРИДБАТИ НА ЦИХ РЕЧАХ</h2>
-</div>
+  <div class="prints-title page-width"> 
+    <h2>{{ section.settings.prints_title | default: 'ПРИНТ МОЖНА ПРИДБАТИ НА ЦИХ РЕЧАХ' }}</h2>
+  </div>
    
 {% endif %}
 
@@ -130,6 +130,12 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "prints_title",
+      "label": "Заголовок для принтов",
+      "default": "ПРІНТ МОЖНА ПРИДБАТИ НА ЦИХ РЕЧАХ"
     }
   ]
 }

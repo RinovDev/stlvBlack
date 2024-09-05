@@ -72,3 +72,16 @@ input::-webkit-search-decoration {
 .template-search__results {
   position: relative;
 }
+
+.price-item{
+  color:white;
+}
+
+.price__regular span{
+  color:white;
+}
+
+.card__heading{
+  color:white;
+}
+

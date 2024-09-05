@@ -5,7 +5,8 @@
       "settings": {
         "show_collection_description": true,
         "show_collection_image": true,
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-1",
+        "prints_title": "ПРИНТ МОЖНА ПРИДБАТИ НА ЦИХ РЕЧАХ"
       }
     },
     "product-grid": {

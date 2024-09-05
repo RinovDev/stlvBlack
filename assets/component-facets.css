@@ -174,8 +174,9 @@
 }
 
 .facets__heading {
+  font-family: 'Unbounded';
   display: block;
-  color: rgba(var(--color-foreground), 0.85);
+  color: white;
   font-size: 1.4rem;
   margin: -1.5rem 2rem 0 0;
 }
@@ -189,7 +190,8 @@
 }
 
 .facets__summary {
-  color: rgba(var(--color-foreground), 0.75);
+  font-family: 'Unbounded';
+  color:white;
   font-size: 1.4rem;
   padding: 0 1.75rem 0 0;
   margin-bottom: 1.5rem;
@@ -576,7 +578,7 @@ button.facets__button {
 }
 
 span.active-facets__button-inner {
-  color: rgb(var(--color-foreground));
+  color: white;
   box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground));
   border-radius: 2.6rem;
   font-size: 1rem;
@@ -1247,3 +1249,6 @@ input.mobile-facets__checkbox {
     right: auto; /* Убедитесь, что нет правого выравнивания */
   }
 }
+
+
+
